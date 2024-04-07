@@ -1,0 +1,41 @@
+.header {
+    font-size: 100px;
+    -unity-font: url('project://database/Assets/Sprites/UI/Fonts/PixelAE-Regular.ttf?fileID=12800000&guid=8cccb07c3d8952b4d805adf1633c0761&type=3#PixelAE-Regular');
+    -unity-font-definition: initial;
+    color: rgb(255, 255, 255);
+}
+
+.unity-button {
+    -unity-font: url('project://database/Assets/Sprites/UI/Fonts/PixelAE-Regular.ttf?fileID=12800000&guid=8cccb07c3d8952b4d805adf1633c0761&type=3#PixelAE-Regular');
+    -unity-font-definition: initial;
+    font-size: 20px;
+    -unity-text-align: middle-center;
+    width: 200px;
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0);
+    border-left-color: rgba(255, 255, 255, 0);
+    border-right-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    border-bottom-color: rgba(255, 255, 255, 0);
+}
+
+.panel {
+}
+
+.hide {
+    opacity: 0;
+}
+
+.unity-button:hover {
+    font-size: 25px;
+    transition-property: all;
+    transition-timing-function: ease-in-elastic;
+    color: rgb(0, 255, 55);
+}
+
+.current {
+    font-size: 25px;
+    transition-property: all;
+    transition-timing-function: ease-in-elastic;
+    color: rgb(0, 255, 55);
+}
