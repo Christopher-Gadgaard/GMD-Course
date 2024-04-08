@@ -1,5 +1,4 @@
 using UnityEngine;
-
 namespace Game.Scripts
 {
     public class MovementController : MonoBehaviour
@@ -46,8 +45,8 @@ namespace Game.Scripts
 
         private void FixedUpdate()
         {
-            var moveInput = _inputHandler.MoveInput;
-            var movement = moveInput.normalized * speed;
+            Vector2 moveInput = _inputHandler.MoveInput;
+            Vector2 movement = moveInput.normalized * speed; // Use normalized to ensure consistent movement speed in all directions
             _rigidbody2D.velocity = movement;
         }
     }
