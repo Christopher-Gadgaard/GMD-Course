@@ -12,6 +12,7 @@ namespace Game.Scripts
         private static readonly int MoveX = Animator.StringToHash("MoveX");
         private static readonly int MoveY = Animator.StringToHash("MoveY");
         private static readonly int Idle = Animator.StringToHash("Idle");
+        private static readonly int Death = Animator.StringToHash("Player1_Death");
 
         private void Awake()
         {
@@ -22,7 +23,6 @@ namespace Game.Scripts
 
         private void Update()
         {
-           
             UpdateAnimator();
         }
 
@@ -48,6 +48,30 @@ namespace Game.Scripts
             var moveInput = inputHandler.MoveInput;
             var movement = moveInput.normalized * speed;
             myRigidBody2D.velocity = movement;
+        }
+        
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.layer == LayerMask.NameToLayer("Explosion"))
+            {
+                DeathSequence();
+            }
+        }
+        
+        private void DeathSequence()
+        {
+            enabled = false;
+            GetComponent<BombController>().enabled = false;
+            
+            animator.Play(Death);
+          
+          Invoke(nameof(OnDeathSequenceEnded),1.25f);
+        }
+        
+        private void OnDeathSequenceEnded()
+        {
+           gameObject.SetActive(false);
+          //  FindObjectOfType<GameManager>().CheckWinState();
         }
     }
 }

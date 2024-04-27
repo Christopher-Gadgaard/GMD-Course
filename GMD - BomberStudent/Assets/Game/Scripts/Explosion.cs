@@ -10,9 +10,6 @@ namespace Game.Scripts
         public SpriteRenderer endRenderer; 
         public SpriteRenderer middleRenderer; 
         public SpriteRenderer startRenderer; 
-
-
-
         public void SetAnimator(Animator animator, SpriteRenderer spriteRenderer)
         {
             startAnimator.enabled = animator == startAnimator;
@@ -25,7 +22,7 @@ namespace Game.Scripts
 
         public void SetDirection(Vector2 direction)
         {
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
 
