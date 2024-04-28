@@ -3,7 +3,7 @@ namespace Game.Scripts
 {
     public class MovementController : MonoBehaviour
     {
-        [Header("Movement Speed")] [SerializeField] private float speed = 5f;
+        [Header("Movement Speed")] [SerializeField] internal float speed = 5f;
         [Header("Animator")] [SerializeField] private Animator animator;
 
         private Vector2 direction;

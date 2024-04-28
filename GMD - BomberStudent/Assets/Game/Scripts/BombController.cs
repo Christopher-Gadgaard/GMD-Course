@@ -18,10 +18,10 @@ namespace Game.Scripts
         [Header("Explosion")] [SerializeField] private Explosion explosionPrefab;
         [SerializeField] private LayerMask explosionLayerMask;
         [SerializeField] private float explosionDuration = 1f;
-        [SerializeField] private int explosionRadius = 1;
+        [SerializeField] internal int explosionRadius = 1;
 
         [Header("Destructible")] public Tilemap destructibleTiles;
-        // public Destructible destructiblePrefab;
+        public Destructible destructiblePrefab;
 
         private void OnEnable()
         {
@@ -53,7 +53,7 @@ namespace Game.Scripts
             position.x = Mathf.Round(position.x);
             position.y = Mathf.Round(position.y);
 
-            GameObject bomb = Instantiate(bombPrefab, position, Quaternion.identity);
+            var bomb = Instantiate(bombPrefab, position, Quaternion.identity);
             bombsRemaining--;
 
             yield return new WaitForSeconds(bombFuseTime);
@@ -62,7 +62,7 @@ namespace Game.Scripts
             position.x = Mathf.Round(position.x);
             position.y = Mathf.Round(position.y);
 
-            Explosion explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
+            var explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
             explosion.SetAnimator(explosion.startAnimator, explosion.startRenderer); 
             explosion.DestroyAfter(explosionDuration);
 
@@ -90,10 +90,13 @@ namespace Game.Scripts
                 return;
             }
 
-            Explosion explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
-            if (length > 1) {
+            var explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
+            if (length > 1) 
+            {
                 explosion.SetAnimator(explosion.middleAnimator, explosion.middleRenderer); 
-            } else {
+            } 
+            else
+            {
                 explosion.SetAnimator(explosion.endAnimator, explosion.endRenderer); 
             }
             explosion.SetDirection(direction);
@@ -112,14 +115,12 @@ namespace Game.Scripts
 
         private void ClearDestructible(Vector2 position)
         {
-            Vector3Int cell = destructibleTiles.WorldToCell(position);
-            TileBase tile = destructibleTiles.GetTile(cell);
+            var cell = destructibleTiles.WorldToCell(position);
+            var tile = destructibleTiles.GetTile(cell);
 
-            if (tile != null)
-            {
-                //  Instantiate(destructiblePrefab, position, Quaternion.identity);
-                destructibleTiles.SetTile(cell, null);
-            }
+            if (tile == null) return;
+            Instantiate(destructiblePrefab, position, Quaternion.identity);
+            destructibleTiles.SetTile(cell, null);
         }
 
         public void AddBomb()

@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 243835149}
   - component: {fileID: 243835148}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Stage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 674012469}
   - component: {fileID: 674012468}
   - component: {fileID: 674012470}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Indestructibles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2320,13 +2320,13 @@ GameObject:
   - component: {fileID: 1053415935}
   - component: {fileID: 1053415934}
   - component: {fileID: 1053415936}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Destructibles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1053415933
 Transform:
   m_ObjectHideFlags: 0
@@ -3323,7 +3323,7 @@ GameObject:
   - component: {fileID: 1688815120}
   - component: {fileID: 1688815124}
   - component: {fileID: 1688815125}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3472,10 +3472,11 @@ MonoBehaviour:
   explosionPrefab: {fileID: 3314226298930881437, guid: 3674f369a5a2a364b859c24d3f57fb6c, type: 3}
   explosionLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   explosionDuration: 1
   explosionRadius: 1
-  destructibleTiles: {fileID: 0}
+  destructibleTiles: {fileID: 1053415935}
+  destructiblePrefab: {fileID: 2501683731441810447, guid: 1459df30d323f364bad61511e82fbbc8, type: 3}
 --- !u!1 &1798103246
 GameObject:
   m_ObjectHideFlags: 0
@@ -3579,7 +3580,7 @@ GameObject:
   - component: {fileID: 2007913941}
   - component: {fileID: 2007913943}
   - component: {fileID: 2007913942}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerAnimator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3595,7 +3596,7 @@ Transform:
   m_GameObject: {fileID: 2007913940}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0625, y: 0.425, z: 0}
+  m_LocalPosition: {x: 0.0621, y: 0.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
