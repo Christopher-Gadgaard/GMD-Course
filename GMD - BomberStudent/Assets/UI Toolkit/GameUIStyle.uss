@@ -1,0 +1,26 @@
+.header {
+    -unity-font: url('project://database/Assets/MainMenu/Sprites/Fonts/PixelAE-Regular.ttf?fileID=12800000&guid=8cccb07c3d8952b4d805adf1633c0761&type=3#PixelAE-Regular');
+    -unity-font-definition: initial;
+}
+
+.speed-bar .unity-progress-bar__progress{
+    background-color: blue;
+}
+
+.unity-progress-bar__container{
+    min-height: 10px;
+    height: 22px;
+    
+}
+
+.unity-progress-bar__background{
+   border-radius: 3px;
+
+}
+
+.unity-progress-bar__progress{
+    height: 20px;
+    margin: 0;
+    border-radius: 2px;
+
+}
