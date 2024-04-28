@@ -76,7 +76,7 @@ namespace Game.Scripts
         private void OnDeathSequenceEnded()
         {
             gameObject.SetActive(false);
-            //  FindObjectOfType<GameManager>().CheckWinState();
+            FindObjectOfType<GameManager>().CheckWinState();
         }
     }
 }

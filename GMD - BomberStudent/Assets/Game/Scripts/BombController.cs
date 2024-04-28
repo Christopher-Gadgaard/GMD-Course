@@ -81,33 +81,36 @@ namespace Game.Scripts
 
         private void Explode(Vector2 position, Vector2 direction, int length)
         {
-            if (length <= 0)
+            while (true)
             {
-                return;
+                if (length <= 0)
+                {
+                    return;
+                }
+
+                position += direction;
+
+                if (Physics2D.OverlapBox(position, new Vector2(0.5f, 0.5f), 0f, explosionLayerMask))
+                {
+                    ClearDestructible(position);
+                    return;
+                }
+
+                var explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
+                if (length > 1)
+                {
+                    explosion.PlayMiddleAnimation();
+                }
+                else
+                {
+                    explosion.PlayEndAnimation();
+                }
+
+                explosion.SetDirection(direction);
+                explosion.DestroyAfter(explosionDuration);
+
+                length -= 1;
             }
-
-            position += direction;
-
-            if (Physics2D.OverlapBox(position, new Vector2(0.5f, 0.5f), 0f, explosionLayerMask))
-            {
-                ClearDestructible(position);
-                return;
-            }
-
-            var explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
-            if (length > 1)
-            {
-                explosion.PlayMiddleAnimation();
-            }
-            else
-            {
-                explosion.PlayEndAnimation();
-            }
-
-            explosion.SetDirection(direction);
-            explosion.DestroyAfter(explosionDuration);
-
-            Explode(position, direction, length - 1);
         }
 
         private void OnTriggerExit2D(Collider2D other)
