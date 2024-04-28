@@ -22,7 +22,7 @@ namespace Game.Scripts
         private void Awake()
         {
             myRigidBody2D = GetComponent<Rigidbody2D>();
-            inputHandler = PlayerInputHandler.Instance;
+            inputHandler = gameObject.GetComponent<PlayerInputHandler>();
             animator = GetComponentInChildren<Animator>();
         }
 
