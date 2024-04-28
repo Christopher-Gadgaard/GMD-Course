@@ -38,7 +38,7 @@ namespace Game.Scripts
         private void RegisterInputActions()
         {
             moveAction.performed += ctx => MoveInput = ctx.ReadValue<Vector2>();
-            moveAction.canceled += ctx => MoveInput = Vector2.zero;
+            moveAction.canceled += _ => MoveInput = Vector2.zero;
         }
 
         private void OnEnable()

@@ -4,11 +4,11 @@ namespace Game.Scripts
 {
     public class Destructible : MonoBehaviour
     {
-        public float destructionTime = 1f;
+        [SerializeField] private float destructionTime = 0.3f;
     
         [Range(0f,1f)]
-        public float itemSpawnChance = 0.2f;
-        public GameObject[] spawnAbleItems;
+        [SerializeField] private float itemSpawnChance = 0.2f;
+        [SerializeField] private GameObject[] spawnAbleItems;
         private void Start()
         {
             Destroy(gameObject,destructionTime);

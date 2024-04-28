@@ -8,20 +8,24 @@ namespace Game.Scripts
 {
     public class BombController : MonoBehaviour
     {
-        [Header("Input")] [SerializeField] private InputAction placeBombAction;
+        [Header("Input")] 
+        [SerializeField] private InputAction placeBombAction;
 
-        [Header("Bomb")] [SerializeField] private GameObject bombPrefab;
+        [Header("Bomb")] 
+        [SerializeField] private GameObject bombPrefab;
         [SerializeField] private float bombFuseTime = 3f;
         [SerializeField] private int bombAmount = 1;
         private int bombsRemaining;
 
-        [Header("Explosion")] [SerializeField] private Explosion explosionPrefab;
+        [Header("Explosion")] 
+        [SerializeField] private Explosion explosionPrefab;
         [SerializeField] private LayerMask explosionLayerMask;
         [SerializeField] private float explosionDuration = 1f;
         [SerializeField] internal int explosionRadius = 1;
 
-        [Header("Destructible")] public Tilemap destructibleTiles;
-        public Destructible destructiblePrefab;
+        [Header("Destructible")] 
+        [SerializeField] private Tilemap destructibleTiles;
+        [SerializeField] private Destructible destructiblePrefab;
 
         private void OnEnable()
         {
@@ -63,7 +67,7 @@ namespace Game.Scripts
             position.y = Mathf.Round(position.y);
 
             var explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
-            explosion.SetAnimator(explosion.startAnimator, explosion.startRenderer); 
+            explosion.PlayStartAnimation();
             explosion.DestroyAfter(explosionDuration);
 
             Explode(position, Vector2.up, explosionRadius);
@@ -91,14 +95,15 @@ namespace Game.Scripts
             }
 
             var explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
-            if (length > 1) 
+            if (length > 1)
             {
-                explosion.SetAnimator(explosion.middleAnimator, explosion.middleRenderer); 
-            } 
+                explosion.PlayMiddleAnimation();
+            }
             else
             {
-                explosion.SetAnimator(explosion.endAnimator, explosion.endRenderer); 
+                explosion.PlayEndAnimation();
             }
+
             explosion.SetDirection(direction);
             explosion.DestroyAfter(explosionDuration);
 

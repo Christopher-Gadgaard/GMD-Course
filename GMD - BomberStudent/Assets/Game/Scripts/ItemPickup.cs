@@ -37,6 +37,7 @@ namespace Game.Scripts
         {
             if (other.CompareTag("Player"))
             {
+                Debug.Log("ItemPickup");
                 OnItemPickup(other.gameObject);
             }
         }

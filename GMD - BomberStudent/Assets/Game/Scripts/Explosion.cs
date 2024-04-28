@@ -1,23 +1,33 @@
+using System;
 using UnityEngine;
 
 namespace Game.Scripts
 {
     public class Explosion : MonoBehaviour
     {
-        public Animator endAnimator;
-        public Animator middleAnimator;
-        public Animator startAnimator;
-        public SpriteRenderer endRenderer; 
-        public SpriteRenderer middleRenderer; 
-        public SpriteRenderer startRenderer; 
-        public void SetAnimator(Animator animator, SpriteRenderer spriteRenderer)
+        [Header("Animator")] [SerializeField] private Animator animator;
+
+        private static readonly int End = Animator.StringToHash("ExplosionEnd");
+        private static readonly int Middle = Animator.StringToHash("ExplosionMiddle");
+        private static readonly int Start = Animator.StringToHash("ExplosionStart");
+        private void Awake()
         {
-            startAnimator.enabled = animator == startAnimator;
-            startRenderer.enabled = spriteRenderer == startRenderer;
-            middleAnimator.enabled = animator == middleAnimator;
-            middleRenderer.enabled = spriteRenderer == middleRenderer;
-            endAnimator.enabled = animator == endAnimator;
-            endRenderer.enabled = spriteRenderer == endRenderer;
+            animator = GetComponent<Animator>();
+        }
+
+        public void PlayEndAnimation()
+        {
+            animator.Play(End);
+        }
+        
+        public void PlayMiddleAnimation()
+        {
+            animator.Play(Middle);
+        }
+
+        public void PlayStartAnimation()
+        {
+            animator.Play(Start);
         }
 
         public void SetDirection(Vector2 direction)
