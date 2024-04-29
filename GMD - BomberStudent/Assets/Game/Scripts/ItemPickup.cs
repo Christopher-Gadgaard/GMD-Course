@@ -19,27 +19,38 @@ namespace Game.Scripts
             switch (type)
             {
                 case ItemType.ExtraBomb:
-                    player.GetComponent<BombController>().AddBomb();
+                    var bombController = player.GetComponent<BombController>();
+                    if (bombController != null)
+                    {
+                        bombController.AddBomb();
+                    }
                     break;
                 case ItemType.BlastRadius:
-                    player.GetComponent<BombController>().explosionRadius++;
+                    bombController = player.GetComponent<BombController>();
+                    if (bombController != null)
+                    {
+                        bombController.AddRadius();
+                    }
                     break;
                 case ItemType.SpeedIncrease:
-                    player.GetComponent<MovementController>().speed++;
+                    var movementController = player.GetComponent<MovementController>();
+                    if (movementController != null)
+                    {
+                        movementController.IncreaseSpeed();
+                    }
                     break;
                 default:
-                    Debug.LogError("Could not match item pickup");
+                    Debug.LogError("Unhandled item pickup type: " + type);
                     break;
             }
             Destroy(gameObject);
         }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.CompareTag("Player"))
-            {
-                Debug.Log("ItemPickup");
-                OnItemPickup(other.gameObject);
-            }
+            if (!other.CompareTag("Player")) return;
+            // Debug.Log("Item picked up: " + type);
+            OnItemPickup(other.gameObject);
         }
     }
 }

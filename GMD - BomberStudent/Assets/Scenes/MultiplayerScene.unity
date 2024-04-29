@@ -3448,6 +3448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b23407323e4d1ca2b19f2f2de8d9b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerId: Player1
   placeBombAction:
     m_Name: Place Bomb
     m_Type: 1
@@ -3472,7 +3473,7 @@ MonoBehaviour:
   explosionLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  explosionDuration: 0.3
+  explosionDuration: 1
   explosionRadius: 5
   destructibleTiles: {fileID: 1053415935}
   destructiblePrefab: {fileID: 2501683731441810447, guid: 1459df30d323f364bad61511e82fbbc8, type: 3}
@@ -3503,6 +3504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09928f4c677fa28418481c7b9b71798b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerId: Player2
   speed: 5
   animator: {fileID: 131718647}
 --- !u!58 &1539515277
@@ -3663,6 +3665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09928f4c677fa28418481c7b9b71798b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerId: Player1
   speed: 5
   animator: {fileID: 2007913943}
 --- !u!58 &1688815121
@@ -3770,6 +3773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b23407323e4d1ca2b19f2f2de8d9b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerId: Player1
   placeBombAction:
     m_Name: Place Bomb
     m_Type: 1
@@ -3794,8 +3798,8 @@ MonoBehaviour:
   explosionLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  explosionDuration: 0.3
-  explosionRadius: 5
+  explosionDuration: 1
+  explosionRadius: 1
   destructibleTiles: {fileID: 1053415935}
   destructiblePrefab: {fileID: 2501683731441810447, guid: 1459df30d323f364bad61511e82fbbc8, type: 3}
 --- !u!1 &1694943642
@@ -3808,6 +3812,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1694943644}
   - component: {fileID: 1694943643}
+  - component: {fileID: 1694943645}
   m_Layer: 0
   m_Name: GameUI
   m_TagString: Untagged
@@ -3846,6 +3851,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1694943645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694943642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8931c470f8dec3478c1a7dfd07a0499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1798103246
 GameObject:
   m_ObjectHideFlags: 0

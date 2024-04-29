@@ -4,10 +4,18 @@
         <ui:VisualElement name="side-panels-container" style="flex-grow: 1; flex-direction: row; justify-content: space-between;">
             <ui:VisualElement name="left-side-panel" style="flex-grow: 1; height: 1080px; width: 400px; position: absolute;">
                 <ui:VisualElement name="player-container" style="flex-grow: 1; margin-top: 20px; margin-right: 15px; margin-bottom: 15px; margin-left: 15px;">
-                    <ui:Label tabindex="-1" text="Player 1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="player-1" style="align-self: center; font-size: 56px;" />
+                    <ui:Label tabindex="-1" text="Player 1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="player-1" style="align-self: center; font-size: 45px; color: rgb(255, 255, 255);" />
                     <ui:VisualElement name="speed-container" style="height: 50px; flex-direction: row; margin-top: 15px; margin-right: 15px; margin-bottom: 15px; margin-left: 15px; align-self: auto;">
                         <ui:VisualElement name="Icon" style="background-image: url(&apos;project://database/Assets/Game/Sprites/Items/ItemSpeedIncrease.png?fileID=2800000&amp;guid=00185159e976fcd44a4ee2740ca4d034&amp;type=3#ItemSpeedIncrease&apos;); width: 50px; height: 50px; align-items: flex-start;" />
-                        <ui:ProgressBar value="22" title="Speed" name="speed-bar" class="speed-bar" style="flex-grow: 1; justify-content: center;" />
+                        <ui:ProgressBar value="22" title="Speed" name="player1-speed-bar" class="speed-bar bar" style="flex-grow: 1; justify-content: center;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="bomb-container" style="height: 50px; flex-direction: row; margin-top: 15px; margin-right: 15px; margin-bottom: 15px; margin-left: 15px; align-self: auto;">
+                        <ui:VisualElement name="Icon" style="background-image: url(&apos;project://database/Assets/Game/Sprites/Items/ItemExtraBomb.png?fileID=2800000&amp;guid=adac276b12b66724095761e256d07bd1&amp;type=3#ItemExtraBomb&apos;); width: 50px; height: 50px; align-items: flex-start;" />
+                        <ui:ProgressBar value="22" title="Bomb" name="player1-bomb-bar" class="bomb-bar bar" style="flex-grow: 1; justify-content: center;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="radius-container" style="height: 50px; flex-direction: row; margin-top: 15px; margin-right: 15px; margin-bottom: 15px; margin-left: 15px; align-self: auto;">
+                        <ui:VisualElement name="Icon" style="background-image: url(&apos;project://database/Assets/Game/Sprites/Items/ItemBlastRadius.png?fileID=2800000&amp;guid=72d62c342eba58f4780f76ce65615dfa&amp;type=3#ItemBlastRadius&apos;); width: 50px; height: 50px; align-items: flex-start;" />
+                        <ui:ProgressBar value="22" title="Radius" name="player1-radius-bar" class="radius-bar bar" style="flex-grow: 1; justify-content: center;" />
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>

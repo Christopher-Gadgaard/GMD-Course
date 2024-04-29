@@ -8,6 +8,9 @@ namespace Game.Scripts
 {
     public class BombController : MonoBehaviour
     {
+        [Header("Player ID")] 
+        [SerializeField] private string playerId = "Player1";
+        
         [Header("Input")] 
         [SerializeField] private InputAction placeBombAction;
 
@@ -15,14 +18,18 @@ namespace Game.Scripts
         [SerializeField] private GameObject bombPrefab;
         [SerializeField] private float bombFuseTime = 3f;
         [SerializeField] private int bombAmount = 1;
+        private const int MaxBombs = 10;  
         private int bombsRemaining;
+        public static event Action<string, int> OnBombsChanged;
 
         [Header("Explosion")] 
         [SerializeField] private Explosion explosionPrefab;
         [SerializeField] private LayerMask explosionLayerMask;
-        [SerializeField] private float explosionDuration = 1f;
+        [SerializeField] private float explosionDuration = 0.3f;
         [SerializeField] internal int explosionRadius = 1;
-
+        private const int MaxRadius = 10;
+        public static event Action<string, int> OnRadiusChanged;
+        
         [Header("Destructible")] 
         [SerializeField] private Tilemap destructibleTiles;
         [SerializeField] private Destructible destructiblePrefab;
@@ -41,6 +48,12 @@ namespace Game.Scripts
         private void Awake()
         {
             placeBombAction.performed += _ => PlaceBomb();
+        }
+
+        private void Start()
+        {
+            OnBombsChanged?.Invoke(playerId, bombAmount); 
+            OnRadiusChanged?.Invoke(playerId,explosionRadius);
         }
 
         private void PlaceBomb()
@@ -133,8 +146,17 @@ namespace Game.Scripts
 
         public void AddBomb()
         {
-            bombAmount++;
-            bombsRemaining++;
+           // Debug.Log("Bomb controller added bomb");
+            bombAmount = Mathf.Min(bombAmount + 1, MaxBombs); 
+            bombsRemaining = Mathf.Min(bombsRemaining + 1, MaxBombs); 
+            OnBombsChanged?.Invoke(playerId, bombAmount); 
+        }
+
+        public void AddRadius()
+        {
+           // Debug.Log("Bomb controller added Radius");
+            explosionRadius = Mathf.Min(explosionRadius + 1, MaxRadius); 
+            OnRadiusChanged?.Invoke(playerId,explosionRadius);
         }
     }
 }

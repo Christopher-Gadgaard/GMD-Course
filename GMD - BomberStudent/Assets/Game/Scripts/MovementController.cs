@@ -1,11 +1,18 @@
+using System;
 using UnityEngine;
 
 namespace Game.Scripts
 {
-    public class MovementController : MonoBehaviour
+  public class MovementController : MonoBehaviour
     {
+        [Header("Player ID")] 
+        [SerializeField] private string playerId = "Player1";
+        
+        
         [Header("Movement Speed")] 
         [SerializeField] internal float speed = 5f;
+        public static event Action<string, float> OnSpeedChanged;
+        private const float MaxSpeed = 15f;  
 
         [Header("Animator")] 
         [SerializeField] private Animator animator;
@@ -17,12 +24,17 @@ namespace Game.Scripts
         private static readonly int MoveX = Animator.StringToHash("MoveX");
         private static readonly int MoveY = Animator.StringToHash("MoveY");
         private static readonly int Idle = Animator.StringToHash("Idle");
-        private static readonly int Death = Animator.StringToHash("Player1_Death");
+        private static readonly int Death = Animator.StringToHash("Death");
+
+        private void Start()
+        {
+            OnSpeedChanged?.Invoke(playerId, speed); 
+        }
 
         private void Awake()
         {
             myRigidBody2D = GetComponent<Rigidbody2D>();
-            inputHandler = gameObject.GetComponent<PlayerInputHandler>();
+            inputHandler = GetComponent<PlayerInputHandler>();
             animator = GetComponentInChildren<Animator>();
         }
 
@@ -53,6 +65,12 @@ namespace Game.Scripts
             var moveInput = inputHandler.MoveInput;
             var movement = moveInput.normalized * speed;
             myRigidBody2D.velocity = movement;
+        }
+
+        public void IncreaseSpeed()
+        {
+            speed = Mathf.Min(speed + 1, MaxSpeed); 
+            OnSpeedChanged?.Invoke(playerId, speed); 
         }
 
         private void OnTriggerEnter2D(Collider2D other)
