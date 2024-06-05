@@ -17,6 +17,10 @@
                         <ui:VisualElement name="Icon" style="background-image: url(&apos;project://database/Assets/Game/Sprites/Items/ItemBlastRadius.png?fileID=2800000&amp;guid=72d62c342eba58f4780f76ce65615dfa&amp;type=3#ItemBlastRadius&apos;); width: 50px; height: 50px; align-items: flex-start;" />
                         <ui:ProgressBar value="22" title="Radius" name="player1-radius-bar" class="radius-bar bar" style="flex-grow: 1; justify-content: center;" />
                     </ui:VisualElement>
+                    <ui:VisualElement name="conveyor-container" style="height: 50px; flex-direction: row; margin-top: 15px; margin-right: 15px; margin-bottom: 15px; margin-left: 15px; align-self: auto;">
+                        <ui:VisualElement name="Icon" style="background-image: url(&apos;project://database/Assets/Game/Sprites/Items/ItemBombSpeed.png?fileID=2800000&amp;guid=bafc37ec5a0dac84cbafc3354e2848a3&amp;type=3#ItemBombSpeed&apos;); width: 50px; height: 50px; align-items: flex-start;" />
+                        <ui:ProgressBar value="22" title="Conveyor" name="player1-conveyor-bar" class="radius-bar bar" style="flex-grow: 1; justify-content: center;" />
+                    </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="right-side-panel" style="flex-grow: 1; flex-direction: column-reverse; height: 1080px; position: absolute; right: 0; width: 400px;">
@@ -33,6 +37,10 @@
                     <ui:VisualElement name="radius-container" style="height: 50px; flex-direction: row; margin-top: 15px; margin-right: 15px; margin-bottom: 15px; margin-left: 15px; align-self: auto;">
                         <ui:VisualElement name="Icon" style="background-image: url(&apos;project://database/Assets/Game/Sprites/Items/ItemBlastRadius.png?fileID=2800000&amp;guid=72d62c342eba58f4780f76ce65615dfa&amp;type=3#ItemBlastRadius&apos;); width: 50px; height: 50px; align-items: flex-start;" />
                         <ui:ProgressBar value="22" title="Radius" name="player2-radius-bar" class="radius-bar bar" style="flex-grow: 1; justify-content: center;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="conveyor-container" style="height: 50px; flex-direction: row; margin-top: 15px; margin-right: 15px; margin-bottom: 15px; margin-left: 15px; align-self: auto;">
+                        <ui:VisualElement name="Icon" style="background-image: url(&apos;project://database/Assets/Game/Sprites/Items/ItemBombSpeed.png?fileID=2800000&amp;guid=bafc37ec5a0dac84cbafc3354e2848a3&amp;type=3#ItemBombSpeed&apos;); width: 50px; height: 50px; align-items: flex-start;" />
+                        <ui:ProgressBar value="22" title="Conveyor" name="player2-conveyor-bar" class="radius-bar bar" style="flex-grow: 1; justify-content: center;" />
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>

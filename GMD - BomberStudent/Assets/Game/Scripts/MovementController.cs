@@ -85,9 +85,8 @@ namespace Game.Scripts
         {
             enabled = false;
             GetComponent<BombController>().enabled = false;
-
             animator.Play(Death);
-
+            AudioManager.Instance.PlaySound(AudioManager.Instance.gameOverClip);
             Invoke(nameof(OnDeathSequenceEnded), 1.25f);
         }
 

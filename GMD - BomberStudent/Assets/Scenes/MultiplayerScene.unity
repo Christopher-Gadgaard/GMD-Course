@@ -3429,6 +3429,7 @@ GameObject:
   - component: {fileID: 1539515276}
   - component: {fileID: 1539515275}
   - component: {fileID: 1539515274}
+  - component: {fileID: 1539515280}
   m_Layer: 3
   m_Name: Player2
   m_TagString: Player
@@ -3474,7 +3475,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   explosionDuration: 0.5
-  explosionRadius: 5
+  explosionRadius: 1
   destructibleTiles: {fileID: 1053415935}
   destructiblePrefab: {fileID: 2501683731441810447, guid: 1459df30d323f364bad61511e82fbbc8, type: 3}
 --- !u!114 &1539515275
@@ -3585,6 +3586,29 @@ Transform:
   - {fileID: 131718649}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1539515280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539515273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc58bff26094e668738186e3338642c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conveyorBeltPrefab: {fileID: 4334126594111649555, guid: f15abaa844109a4449a96b3f49706395, type: 3}
+  placeConveyorAction:
+    m_Name: Place Conveyor
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: e96ca071-722a-4af1-a8e5-f8d29452b4e9
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  playerId: Player2
 --- !u!1 &1624188392
 GameObject:
   m_ObjectHideFlags: 0
@@ -3595,6 +3619,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1624188394}
   - component: {fileID: 1624188393}
+  - component: {fileID: 1624188395}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3632,6 +3657,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1624188395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624188392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c8b383128b45934e944cae3bbcb4d03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombExplodeClip: {fileID: 8300000, guid: da2b12a57c9bdd14eabea1eac7166db9, type: 3}
+  pickupItemClip: {fileID: 8300000, guid: bcce255f8879d6f4b8e2dd1ccbc089b5, type: 3}
+  gameOverClip: {fileID: 8300000, guid: 4e71e2586f33b1047b7d3970c1aa17c9, type: 3}
+  backgroundMusicClip: {fileID: 8300000, guid: 1aaebc67c9a274e4e94a88893a7652d1, type: 3}
+  effectsVolume: 0.98
+  musicVolume: 0.193
 --- !u!1 &1688815119
 GameObject:
   m_ObjectHideFlags: 0
@@ -3646,6 +3689,7 @@ GameObject:
   - component: {fileID: 1688815120}
   - component: {fileID: 1688815124}
   - component: {fileID: 1688815125}
+  - component: {fileID: 1688815126}
   m_Layer: 3
   m_Name: Player1
   m_TagString: Player
@@ -3802,6 +3846,37 @@ MonoBehaviour:
   explosionRadius: 1
   destructibleTiles: {fileID: 1053415935}
   destructiblePrefab: {fileID: 2501683731441810447, guid: 1459df30d323f364bad61511e82fbbc8, type: 3}
+--- !u!114 &1688815126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688815119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc58bff26094e668738186e3338642c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conveyorBeltPrefab: {fileID: 4334126594111649555, guid: f15abaa844109a4449a96b3f49706395, type: 3}
+  placeConveyorAction:
+    m_Name: Place Conveyor
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 138611ba-d08e-4bd2-9114-84676b5d4928
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 2d09b760-d728-4b98-b944-8b530da2b132
+      m_Path: <Keyboard>/c
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Place Conveyor
+      m_Flags: 0
+    m_Flags: 0
+  playerId: Player1
 --- !u!1 &1694943642
 GameObject:
   m_ObjectHideFlags: 0

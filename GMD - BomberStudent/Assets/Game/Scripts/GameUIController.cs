@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -13,8 +12,10 @@ namespace Game.Scripts
         private ProgressBar player2BombProgressBar;
         private ProgressBar player1RadiusProgressBar;
         private ProgressBar player2RadiusProgressBar;
+        private ProgressBar player1ConveyorProgressBar;
+        private ProgressBar player2ConveyorProgressBar;
 
-        private void Start()
+        private void Awake()
         {
             root = GetComponent<UIDocument>().rootVisualElement;
             player1SpeedProgressBar = root.Q<ProgressBar>("player1-speed-bar");
@@ -23,6 +24,8 @@ namespace Game.Scripts
             player2BombProgressBar = root.Q<ProgressBar>("player2-bomb-bar");
             player1RadiusProgressBar = root.Q<ProgressBar>("player1-radius-bar");
             player2RadiusProgressBar = root.Q<ProgressBar>("player2-radius-bar");
+            player1ConveyorProgressBar = root.Q<ProgressBar>("player1-conveyor-bar");
+            player2ConveyorProgressBar = root.Q<ProgressBar>("player2-conveyor-bar");
         }
 
         private void OnEnable()
@@ -30,6 +33,7 @@ namespace Game.Scripts
             MovementController.OnSpeedChanged += UpdatePlayerSpeed;
             BombController.OnBombsChanged += UpdatePlayerBombs;
             BombController.OnRadiusChanged += UpdatePlayerRadius;
+            ConveyorController.OnConveyorsChanged += UpdatePlayerConveyors;
         }
 
         private void OnDisable()
@@ -37,6 +41,7 @@ namespace Game.Scripts
             MovementController.OnSpeedChanged -= UpdatePlayerSpeed;
             BombController.OnBombsChanged -= UpdatePlayerBombs;
             BombController.OnRadiusChanged -= UpdatePlayerRadius;
+            ConveyorController.OnConveyorsChanged -= UpdatePlayerConveyors; 
         }
 
         private void UpdatePlayerSpeed(string playerId, float speed)
@@ -75,6 +80,27 @@ namespace Game.Scripts
             else if(playerId == "Player2")
             {
                 player2RadiusProgressBar.value = normalizedRadius * 100;
+            }
+        }
+
+        private void UpdatePlayerConveyors(string playerId, int conveyors)
+        {
+            var normalizedConveyors = (float)conveyors / 5; 
+            if (playerId == "Player1")
+            {
+                if (player1ConveyorProgressBar == null)
+                {
+                    return;
+                }
+                player1ConveyorProgressBar.value = normalizedConveyors * 100;
+            }
+            else if (playerId == "Player2")
+            {
+                if (player2ConveyorProgressBar == null)
+                {
+                    return;
+                }
+                player2ConveyorProgressBar.value = normalizedConveyors * 100;
             }
         }
     }

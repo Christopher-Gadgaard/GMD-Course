@@ -10,6 +10,7 @@ namespace Game.Scripts
             ExtraBomb,
             BlastRadius,
             SpeedIncrease,
+            ConveyorBelt
         }
 
         public ItemType type;
@@ -39,6 +40,13 @@ namespace Game.Scripts
                         movementController.IncreaseSpeed();
                     }
                     break;
+                case ItemType.ConveyorBelt: 
+                    var conveyorController = player.GetComponent<ConveyorController>();
+                    if (conveyorController != null)
+                    {
+                        conveyorController.AddConveyorBelt();
+                    }
+                    break;
                 default:
                     Debug.LogError("Unhandled item pickup type: " + type);
                     break;
@@ -51,7 +59,6 @@ namespace Game.Scripts
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (!other.CompareTag("Player")) return;
-            // Debug.Log("Item picked up: " + type);
             OnItemPickup(other.gameObject);
         }
     }
