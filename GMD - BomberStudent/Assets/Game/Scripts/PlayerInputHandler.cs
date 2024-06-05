@@ -5,32 +5,23 @@ namespace Game.Scripts
 {
     public class PlayerInputHandler : MonoBehaviour
     {
-        [Header("Input Action Asset")]
-        [SerializeField] private InputActionAsset playerControls;
-
-        [Header("Action Map Name Reference")]
-        [SerializeField] private string actionMapName = "Player1";
-
-        [Header("Action Name Reference")]
-        [SerializeField] private string move = "Move";
-
+        private PlayerInput playerInput;
         private InputAction moveAction;
 
         public Vector2 MoveInput { get; private set; }
 
         private void Awake()
         {
+            playerInput = GetComponent<PlayerInput>();
             InitializeMoveAction();
         }
 
         private void InitializeMoveAction()
         {
-            var actionMap = playerControls.FindActionMap(actionMapName);
-            if (actionMap == null) return;
-            moveAction = actionMap.FindAction(move);
+            if (playerInput == null) return;
+            moveAction = playerInput.actions["Move"];
             if (moveAction == null) return;
             RegisterInputActions();
-            moveAction.Enable();
         }
 
         private void RegisterInputActions()
