@@ -43,6 +43,8 @@ namespace Game.Scripts
                     Debug.LogError("Unhandled item pickup type: " + type);
                     break;
             }
+            AudioManager.Instance.PlaySound(AudioManager.Instance.pickupItemClip);
+
             Destroy(gameObject);
         }
 

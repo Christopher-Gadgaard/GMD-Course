@@ -3448,7 +3448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b23407323e4d1ca2b19f2f2de8d9b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerId: Player1
+  playerId: Player2
   placeBombAction:
     m_Name: Place Bomb
     m_Type: 1
@@ -3473,7 +3473,7 @@ MonoBehaviour:
   explosionLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  explosionDuration: 1
+  explosionDuration: 0.5
   explosionRadius: 5
   destructibleTiles: {fileID: 1053415935}
   destructiblePrefab: {fileID: 2501683731441810447, guid: 1459df30d323f364bad61511e82fbbc8, type: 3}
@@ -3798,7 +3798,7 @@ MonoBehaviour:
   explosionLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  explosionDuration: 1
+  explosionDuration: 0.5
   explosionRadius: 1
   destructibleTiles: {fileID: 1053415935}
   destructiblePrefab: {fileID: 2501683731441810447, guid: 1459df30d323f364bad61511e82fbbc8, type: 3}

@@ -25,7 +25,7 @@ namespace Game.Scripts
         [Header("Explosion")] 
         [SerializeField] private Explosion explosionPrefab;
         [SerializeField] private LayerMask explosionLayerMask;
-        [SerializeField] private float explosionDuration = 0.3f;
+        [SerializeField] private float explosionDuration = 0.5f;
         [SerializeField] internal int explosionRadius = 1;
         private const int MaxRadius = 10;
         public static event Action<string, int> OnRadiusChanged;
@@ -82,6 +82,8 @@ namespace Game.Scripts
             var explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
             explosion.PlayStartAnimation();
             explosion.DestroyAfter(explosionDuration);
+            
+            AudioManager.Instance.PlaySound(AudioManager.Instance.bombExplodeClip);
 
             Explode(position, Vector2.up, explosionRadius);
             Explode(position, Vector2.down, explosionRadius);
