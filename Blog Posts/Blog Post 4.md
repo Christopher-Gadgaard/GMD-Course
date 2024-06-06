@@ -22,7 +22,7 @@ Using Unity's Animator, we created complex animation transitions and states thro
 
 4. **Transitions**: Transitions between states were defined using the `MoveX` and `MoveY` parameters. For example, a transition from idle to moving right would occur if `MoveX` was greater than 0.
 
-![Animator Setup](file-eSLsTZB4dYbmq9JTdu2B99ho)
+![Animator Setup](https://github.com/Christopher-Gadgaard/GMD-Course/blob/main/Blog%20Posts/Screenshots/Animator.png)
 
 ### Implementing the Animator in Movement Controller
 
