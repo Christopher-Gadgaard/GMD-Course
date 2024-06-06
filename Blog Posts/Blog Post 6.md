@@ -62,7 +62,7 @@ public void InitializeDirection(Vector2 playerDirection)
 ### Creating Custom Sprites
 We created our own sprite for the conveyor belt to visually represent its function in the game. The direction of the conveyor belt is set based on the player's current movement direction.
 
-![Conveyor Belt Sprite](./mnt/data/Conveyor_0.png)
+![Conveyor Belt Sprite](https://github.com/Christopher-Gadgaard/GMD-Course/blob/main/GMD%20-%20BomberStudent/Assets/Game/Sprites/Tiles/Conveyor_0.png)
 
 #### Key Steps:
 1. **Designing the Sprite**: Using a pixel art tool, we designed a conveyor belt sprite with clear directional indicators.
