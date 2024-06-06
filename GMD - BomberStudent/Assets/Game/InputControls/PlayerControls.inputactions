@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ConveyorBelt",
+                    "type": "Button",
+                    "id": "b38d0539-fa74-4ab8-a73b-096971a67caf",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -112,6 +121,17 @@
                     "action": "PlaceBomb",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6ea1d5fe-b576-4523-af83-6679ba89bfec",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ConveyorBelt",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -132,6 +152,15 @@
                     "name": "PlaceBomb",
                     "type": "Button",
                     "id": "2e35a369-00a1-42c0-ab2e-98f3f0228077",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ConveyorBelt",
+                    "type": "Button",
+                    "id": "f5b74809-4adf-43e6-9b33-c0d7bbcb413f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -224,6 +253,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "PlaceBomb",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e5a6965f-4e5a-4a60-80ea-d836e8117fdf",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ConveyorBelt",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -8,29 +8,29 @@ namespace Game.Scripts
 {
     public class BombController : MonoBehaviour
     {
-        [Header("Player ID")] 
+        [Header("Player ID")]
         [SerializeField] private string playerId = "Player1";
-        
-        [Header("Input")] 
-        [SerializeField] private InputAction placeBombAction;
 
-        [Header("Bomb")] 
+        [Header("Input")]
+        private InputAction placeBombAction;
+
+        [Header("Bomb")]
         [SerializeField] private GameObject bombPrefab;
         [SerializeField] private float bombFuseTime = 3f;
         [SerializeField] private int bombAmount = 1;
-        private const int MaxBombs = 10;  
+        private const int MaxBombs = 10;
         private int bombsRemaining;
         public static event Action<string, int> OnBombsChanged;
 
-        [Header("Explosion")] 
+        [Header("Explosion")]
         [SerializeField] private Explosion explosionPrefab;
         [SerializeField] private LayerMask explosionLayerMask;
         [SerializeField] private float explosionDuration = 0.5f;
         [SerializeField] internal int explosionRadius = 1;
         private const int MaxRadius = 10;
         public static event Action<string, int> OnRadiusChanged;
-        
-        [Header("Destructible")] 
+
+        [Header("Destructible")]
         [SerializeField] private Tilemap destructibleTiles;
         [SerializeField] private Destructible destructiblePrefab;
 
@@ -47,13 +47,15 @@ namespace Game.Scripts
 
         private void Awake()
         {
+            var playerInput = GetComponent<PlayerInput>();
+            placeBombAction = playerInput.actions["PlaceBomb"];
             placeBombAction.performed += _ => PlaceBomb();
         }
 
         private void Start()
         {
-            OnBombsChanged?.Invoke(playerId, bombAmount); 
-            OnRadiusChanged?.Invoke(playerId,explosionRadius);
+            OnBombsChanged?.Invoke(playerId, bombAmount);
+            OnRadiusChanged?.Invoke(playerId, explosionRadius);
         }
 
         private void PlaceBomb()
@@ -82,7 +84,7 @@ namespace Game.Scripts
             var explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
             explosion.PlayStartAnimation();
             explosion.DestroyAfter(explosionDuration);
-            
+
             AudioManager.Instance.PlaySound(AudioManager.Instance.bombExplodeClip);
 
             Explode(position, Vector2.up, explosionRadius);
@@ -130,7 +132,7 @@ namespace Game.Scripts
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.gameObject.layer == LayerMask.NameToLayer($"Bomb"))
+            if (other.gameObject.layer == LayerMask.NameToLayer("Bomb"))
             {
                 other.isTrigger = false;
             }
@@ -148,17 +150,15 @@ namespace Game.Scripts
 
         public void AddBomb()
         {
-           // Debug.Log("Bomb controller added bomb");
-            bombAmount = Mathf.Min(bombAmount + 1, MaxBombs); 
-            bombsRemaining = Mathf.Min(bombsRemaining + 1, MaxBombs); 
-            OnBombsChanged?.Invoke(playerId, bombAmount); 
+            bombAmount = Mathf.Min(bombAmount + 1, MaxBombs);
+            bombsRemaining = Mathf.Min(bombsRemaining + 1, MaxBombs);
+            OnBombsChanged?.Invoke(playerId, bombAmount);
         }
 
         public void AddRadius()
         {
-           // Debug.Log("Bomb controller added Radius");
-            explosionRadius = Mathf.Min(explosionRadius + 1, MaxRadius); 
-            OnRadiusChanged?.Invoke(playerId,explosionRadius);
+            explosionRadius = Mathf.Min(explosionRadius + 1, MaxRadius);
+            OnRadiusChanged?.Invoke(playerId, explosionRadius);
         }
     }
 }
