@@ -65,7 +65,9 @@ The game will feature a retro aesthetic, utilizing pixel art graphics and chiptu
 # Assets
 We will be borrowing some assets from the [zigurous bomberman tutorial](https://github.com/zigurous/unity-bomberman-tutorial), but we will also be making some new assets for the new features in the game.
 - 2D sprite assets for characters, bombs, power-ups, and tiles
-- User interface elements for in-game status and menus
+
+# UI
+- User interface elements for in-game status and menus, will be custome made and have pixel look. A pixel font will be barrowed from [Pixel AE](https://essssam.itch.io/pixel-ae)
 
 ## Tiles
 **Originals**
