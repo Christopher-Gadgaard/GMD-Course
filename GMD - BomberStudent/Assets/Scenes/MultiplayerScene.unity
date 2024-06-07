@@ -3452,23 +3452,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerId: Player2
-  placeBombAction:
-    m_Name: Place Bomb
-    m_Type: 1
-    m_ExpectedControlType: Button
-    m_Id: c2367099-3c8b-4e90-b7e3-497e54f0954a
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 7d9338f8-5143-4e97-88fb-0b129b3a8f43
-      m_Path: <Keyboard>/rightShift
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Place Bomb
-      m_Flags: 0
-    m_Flags: 0
   bombPrefab: {fileID: 8355604069986263324, guid: 6168f10bc659bb24882306be21d51279, type: 3}
   bombFuseTime: 3
   bombAmount: 1
@@ -3598,15 +3581,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conveyorBeltPrefab: {fileID: 4334126594111649555, guid: f15abaa844109a4449a96b3f49706395, type: 3}
-  placeConveyorAction:
-    m_Name: Place Conveyor
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: e96ca071-722a-4af1-a8e5-f8d29452b4e9
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
   playerId: Player2
 --- !u!114 &1539515281
 MonoBehaviour:
@@ -3646,7 +3620,7 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Gamepad
+  m_DefaultControlScheme: 
   m_DefaultActionMap: Player2
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -3684,7 +3658,7 @@ MonoBehaviour:
   players:
   - {fileID: 1688815119}
   - {fileID: 1539515273}
-  playerPrefab: {fileID: 0}
+  mainMenuSceneName: Main Menu
 --- !u!4 &1624188394
 Transform:
   m_ObjectHideFlags: 0
@@ -3904,23 +3878,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerId: Player1
-  placeBombAction:
-    m_Name: Place Bomb
-    m_Type: 1
-    m_ExpectedControlType: Button
-    m_Id: c2367099-3c8b-4e90-b7e3-497e54f0954a
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 97c55acc-6b25-46a2-8ec4-ac347ca6b474
-      m_Path: <Keyboard>/space
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Place Bomb
-      m_Flags: 0
-    m_Flags: 0
   bombPrefab: {fileID: 8355604069986263324, guid: 6168f10bc659bb24882306be21d51279, type: 3}
   bombFuseTime: 3
   bombAmount: 1
@@ -3945,23 +3902,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conveyorBeltPrefab: {fileID: 4334126594111649555, guid: f15abaa844109a4449a96b3f49706395, type: 3}
-  placeConveyorAction:
-    m_Name: Place Conveyor
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 138611ba-d08e-4bd2-9114-84676b5d4928
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 2d09b760-d728-4b98-b944-8b530da2b132
-      m_Path: <Keyboard>/c
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Place Conveyor
-      m_Flags: 0
-    m_Flags: 0
   playerId: Player1
 --- !u!114 &1688815127
 MonoBehaviour:
@@ -4001,7 +3941,7 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Gamepad
+  m_DefaultControlScheme: 
   m_DefaultActionMap: Player1
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
