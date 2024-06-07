@@ -1,7 +1,7 @@
 # GMD-Course
 
 ## YouTube Video Demonstration
-[Watch the video demonstration here](#) 
+[Watch the video demonstration here](https://youtu.be/Lr6J4DQW188) 
 
 ## Blog Posts
 1. [Blog Post 1](https://github.com/Christopher-Gadgaard/GMD-Course/blob/main/Blog%20Posts/Blog%20Post%201.md)
